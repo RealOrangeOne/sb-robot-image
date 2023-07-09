@@ -32,3 +32,8 @@ static ip_address=172.31.254.254/24
 interface eth0
 fallback static_eth0
 EOF
+
+# Set hostname
+original_hostname=$(uname -n)
+hostnamectl set-hostname robot
+sed -i 's/$original_hostname/robot/gi' /etc/hosts
